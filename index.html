@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>Break</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#EDF1F2">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Break">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="icon-192.png">
+<style>
+  :root{
+    --bg:#EDF1F2; --card:#FFFFFF; --ink:#14232A; --mut:#6B808A; --line:#DCE5E7;
+    --turf:#1F7A4C; --turf-soft:#E4F0E9; --sig:#D64545;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{overscroll-behavior:none;height:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    padding:env(safe-area-inset-top) env(safe-area-inset-right) calc(env(safe-area-inset-bottom) + 34px) env(safe-area-inset-left);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,ui-sans-serif,sans-serif;
+    font-size:16px;line-height:1.4;-webkit-font-smoothing:antialiased;
+    -webkit-user-select:none;user-select:none;-webkit-text-size-adjust:100%}
+  .wrap{max-width:460px;margin:0 auto;padding:14px 14px 0}
+  header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px}
+  header h1{font-size:17px;font-weight:700;letter-spacing:-.01em;margin:0}
+  header .stimp{font-size:12px;color:var(--mut);font-variant-numeric:tabular-nums}
+  .tabs{display:flex;background:#E0E7E9;border-radius:11px;padding:3px;margin-bottom:14px}
+  .tabs button{flex:1;padding:10px 4px;border:0;background:transparent;border-radius:9px;
+    font:inherit;font-size:14px;font-weight:600;color:var(--mut)}
+  .tabs button.on{background:var(--card);color:var(--ink);box-shadow:0 1px 3px rgba(20,35,42,.13)}
+  .card{background:var(--card);border-radius:14px;padding:16px;margin-bottom:12px;box-shadow:0 1px 2px rgba(20,35,42,.06)}
+  .hero{text-align:center;padding:18px 16px 14px}
+  .hero .num{font-size:70px;font-weight:800;line-height:.9;letter-spacing:-.035em;
+    font-variant-numeric:tabular-nums;color:var(--turf)}
+  .hero .num.inside{color:var(--sig)}
+  .hero .lbl{font-size:12.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--mut);margin-top:9px}
+  .alt{display:flex;margin-top:15px;border-top:1px solid var(--line);padding-top:13px}
+  .alt div{flex:1;text-align:center}
+  .alt div+div{border-left:1px solid var(--line)}
+  .alt .v{font-size:19px;font-weight:700;font-variant-numeric:tabular-nums}
+  .alt .k{font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--mut);margin-top:1px}
+  svg{width:100%;height:auto;display:block}
+  .caption{font-size:10.5px;color:var(--mut);text-align:center;margin:6px 0 0}
+  .field{margin-bottom:20px}
+  .field:last-child{margin-bottom:4px}
+  .fhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px}
+  .fhead .name{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--mut)}
+  .fhead .val{font-size:17px;font-weight:700;font-variant-numeric:tabular-nums}
+  .stepper{display:flex;align-items:center;gap:10px}
+  .stepper button{width:48px;height:48px;flex:0 0 48px;border:1px solid var(--line);background:var(--card);
+    border-radius:11px;font-size:24px;font-weight:600;color:var(--ink);line-height:1}
+  .stepper button:active{background:var(--turf-soft)}
+  .stepper input[type=range]{flex:1;min-width:0}
+  input[type=range]{width:100%;accent-color:var(--turf);height:36px;margin:0}
+  .seg{display:flex;gap:5px}
+  .seg button{flex:1;padding:12px 0;background:var(--card);border:1px solid var(--line);
+    border-radius:9px;font:inherit;font-size:14px;font-weight:600;color:var(--mut)}
+  .seg button.on{background:var(--turf);border-color:var(--turf);color:#fff}
+  .seg.sm button{font-size:12px;padding:11px 0}
+  .hint{font-size:11.5px;color:var(--mut);margin:7px 0 0;line-height:1.4}
+  .btn{display:block;width:100%;padding:15px;border:0;border-radius:11px;background:var(--turf);
+    color:#fff;font:inherit;font-size:15px;font-weight:700}
+  .btn.ghost{background:transparent;color:var(--mut);border:1px solid var(--line);font-weight:600}
+  .btn:active{opacity:.85}
+  .verdict{text-align:center;padding:6px 0 2px}
+  .verdict .big{font-size:42px;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums;color:var(--sig)}
+  .verdict .sm{font-size:12.5px;color:var(--mut);margin-top:5px}
+  ul.log{list-style:none;margin:12px 0 0;padding:0;font-size:13px}
+  ul.log li{display:flex;justify-content:space-between;align-items:center;gap:8px;
+    padding:11px 0;border-top:1px solid var(--line);font-variant-numeric:tabular-nums}
+  ul.log li span.meta{color:var(--mut)}
+  ul.log li b{color:var(--sig);font-weight:700}
+  ul.log li button{border:0;background:transparent;color:var(--mut);font-size:21px;line-height:1;padding:0 4px}
+  .steps{font-size:13px;color:var(--mut);line-height:1.55;margin:0;padding-left:18px}
+  .steps li{margin-bottom:5px}
+  .hidden{display:none}
+  .toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom) + 26px);
+    transform:translateX(-50%) translateY(80px);background:var(--ink);color:#fff;
+    padding:11px 18px;border-radius:22px;font-size:13.5px;transition:transform .22s ease;z-index:9}
+  .toast.show{transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Break</h1>
+    <div class="stimp">plays <b id="hdrStimp">10.0</b> &middot; <span id="hdrRef">from edge</span></div>
+  </header>
+  <div class="tabs">
+    <button id="tRead" class="on">Read</button>
+    <button id="tCal">Calibrate</button>
+  </div>
+
+  <section id="paneRead">
+    <div class="card hero">
+      <div class="num" id="oBalls">1.7</div>
+      <div class="lbl" id="oLbl">balls outside the high edge</div>
+      <div class="alt">
+        <div><div class="v" id="oCm">7.3</div><div class="k">cm</div></div>
+        <div><div class="v" id="oIn">2.9</div><div class="k">inches</div></div>
+        <div><div class="v" id="oHole">0.7</div><div class="k">hole widths</div></div>
+      </div>
+    </div>
+    <div class="card" style="padding:14px 10px 8px">
+      <svg id="viz" viewBox="0 0 360 118"></svg>
+      <p class="caption" id="cap"></p>
+    </div>
+    <div class="card">
+      <div class="field">
+        <div class="fhead"><span class="name">Measure from</span><span class="val" id="vR">high edge</span></div>
+        <div class="seg sm" id="ref">
+          <button type="button" data-r="edge" class="on">High edge</button>
+          <button type="button" data-r="centre">Centre</button>
+        </div>
+        <p class="hint">Edge is 2.13 in / 5.4 cm &mdash; 1.27 balls &mdash; closer than centre.</p>
+      </div>
+      <div class="field">
+        <div class="fhead"><span class="name">Length</span><span class="val" id="vL">10 ft</span></div>
+        <div class="stepper">
+          <button type="button" data-step="-1" data-t="L">&minus;</button>
+          <input type="range" id="L" min="3" max="40" step="1" value="10">
+          <button type="button" data-step="1" data-t="L">+</button>
+        </div>
+        <div class="seg sm" style="margin-top:9px">
+          <button type="button" id="uFt" class="on">feet</button>
+          <button type="button" id="uM">metres</button>
+        </div>
+      </div>
+      <div class="field">
+        <div class="fhead"><span class="name">Slope</span><span class="val" id="vS">1 %</span></div>
+        <div class="stepper">
+          <button type="button" data-step="-1" data-t="S">&minus;</button>
+          <input type="range" id="S" min="0.25" max="5" step="0.25" value="1">
+          <button type="button" data-step="1" data-t="S">+</button>
+        </div>
+      </div>
+      <div class="field">
+        <div class="fhead"><span class="name">Clock</span><span class="val" id="vC">3 &middot; full</span></div>
+        <div class="seg" id="clock"></div>
+        <p class="hint">Find the straight putt first &mdash; that line is 12&ndash;6. 12 is uphill.</p>
+      </div>
+      <div class="field">
+        <div class="fhead"><span class="name">Lie</span><span class="val" id="vT">neutral</span></div>
+        <div class="seg sm" id="tilt">
+          <button type="button" data-t="0.8">Up &minus;20%</button>
+          <button type="button" data-t="1" class="on">Neutral</button>
+          <button type="button" data-t="1.25">Down +25%</button>
+        </div>
+        <p class="hint">Set automatically from the clock. Tap to override.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="paneCal" class="hidden">
+    <div class="card">
+      <div class="verdict">
+        <div class="big" id="calStimp">&mdash;</div>
+        <div class="sm" id="calSub">Log three putts to calibrate this green</div>
+      </div>
+      <ul class="log" id="log"></ul>
+      <div id="calBtns" class="hidden" style="margin-top:14px;display:grid;gap:8px">
+        <button class="btn" id="applyBtn">Use this for readings</button>
+        <button class="btn ghost" id="clearBtn">Clear log</button>
+      </div>
+    </div>
+    <div class="card">
+      <p style="font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin:0 0 10px">Log a putt</p>
+      <ol class="steps">
+        <li>Pick a cross-hill putt at 3 or 9 o'clock. Mark the ball.</li>
+        <li>Putt at dying speed until one goes in.</li>
+        <li>Enter the aim that worked, from the same reference you read from.</li>
+      </ol>
+      <div class="field" style="margin-top:16px">
+        <div class="fhead"><span class="name">Length</span><span class="val" id="cvL">10 ft</span></div>
+        <div class="stepper">
+          <button type="button" data-step="-1" data-t="cL">&minus;</button>
+          <input type="range" id="cL" min="3" max="40" step="1" value="10">
+          <button type="button" data-step="1" data-t="cL">+</button>
+        </div>
+      </div>
+      <div class="field">
+        <div class="fhead"><span class="name">Slope</span><span class="val" id="cvS">1 %</span></div>
+        <div class="stepper">
+          <button type="button" data-step="-1" data-t="cS">&minus;</button>
+          <input type="range" id="cS" min="0.25" max="5" step="0.25" value="1">
+          <button type="button" data-step="1" data-t="cS">+</button>
+        </div>
+      </div>
+      <div class="field">
+        <div class="fhead"><span class="name">Clock</span><span class="val" id="cvC">3 &middot; full</span></div>
+        <div class="seg" id="cclock"></div>
+      </div>
+      <div class="field">
+        <div class="fhead"><span class="name">Aim that worked</span><span class="val" id="cvB">1.5 balls</span></div>
+        <div class="stepper">
+          <button type="button" data-step="-1" data-t="cB">&minus;</button>
+          <input type="range" id="cB" min="-1.5" max="30" step="0.5" value="1.5">
+          <button type="button" data-step="1" data-t="cB">+</button>
+        </div>
+        <p class="hint" id="cvBcm"></p>
+      </div>
+      <button class="btn" id="addBtn">Add reading</button>
+    </div>
+  </section>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const BALL=1.68, HOLE=4.25, RAD=HOLE/2, FT=0.3048, KEY='breakapp:v2';
+const $=i=>document.getElementById(i);
+const HOURS=[12,1,2,3,4,5,6];
+const COS={12:0,1:0.5,2:0.866,3:1,4:0.866,5:0.5,6:0};
+const CLBL={12:"12 \u00b7 none",1:"1 \u00b7 50%",2:"2 \u00b7 87%",3:"3 \u00b7 full",4:"4 \u00b7 87%",5:"5 \u00b7 50%",6:"6 \u00b7 none"};
+
+let state={stimp:10, unit:'ft', ref:'edge', entries:[]};
+let hour=3, tilt=1, tiltTouched=false, cHour=3;
+
+function load(){ try{const r=localStorage.getItem(KEY); if(r) state={...state,...JSON.parse(r)};}catch(e){} }
+function save(){ try{localStorage.setItem(KEY, JSON.stringify(state));}catch(e){} }
+function toast(m){const t=$('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),1700);
+  if(navigator.vibrate) navigator.vibrate(8);}
+
+$('tRead').onclick=()=>{$('tRead').classList.add('on');$('tCal').classList.remove('on');
+  $('paneRead').classList.remove('hidden');$('paneCal').classList.add('hidden');window.scrollTo(0,0);};
+$('tCal').onclick=()=>{$('tCal').classList.add('on');$('tRead').classList.remove('on');
+  $('paneCal').classList.remove('hidden');$('paneRead').classList.add('hidden');window.scrollTo(0,0);};
+
+function buildClock(el,get,set){
+  HOURS.forEach(h=>{const b=document.createElement('button');b.type='button';b.textContent=h;b.dataset.h=h;
+    if(h===get())b.className='on';
+    b.onclick=()=>{set(h);[...el.children].forEach(c=>c.classList.toggle('on',+c.dataset.h===h));};
+    el.appendChild(b);});
+}
+buildClock($('clock'),()=>hour,h=>{hour=h;autoTilt();render();});
+buildClock($('cclock'),()=>cHour,h=>{cHour=h;renderCal();});
+
+const tseg=$('tilt');
+[...tseg.children].forEach(b=>b.onclick=()=>{tilt=+b.dataset.t;tiltTouched=true;
+  [...tseg.children].forEach(c=>c.classList.toggle('on',c===b));render();});
+function autoTilt(){ if(tiltTouched)return;
+  const t=(hour===1||hour===2)?0.8:(hour===4||hour===5)?1.25:1;
+  tilt=t;[...tseg.children].forEach(c=>c.classList.toggle('on',+c.dataset.t===t)); }
+
+const rseg=$('ref');
+[...rseg.children].forEach(b=>b.onclick=()=>{state.ref=b.dataset.r;
+  [...rseg.children].forEach(c=>c.classList.toggle('on',c===b));save();render();renderCal();});
+
+document.querySelectorAll('[data-step]').forEach(b=>{
+  b.onclick=()=>{const el=$(b.dataset.t);
+    el.value=(+el.value)+(+b.dataset.step)*(+el.step);
+    el.dispatchEvent(new Event('input'));};
+});
+['L','S'].forEach(i=>$(i).addEventListener('input',render));
+['cL','cS','cB'].forEach(i=>$(i).addEventListener('input',renderCal));
+$('uFt').onclick=()=>{state.unit='ft';unitUI();render();renderCal();save();};
+$('uM').onclick=()=>{state.unit='m';unitUI();render();renderCal();save();};
+function unitUI(){$('uFt').classList.toggle('on',state.unit==='ft');$('uM').classList.toggle('on',state.unit==='m');
+  [...rseg.children].forEach(c=>c.classList.toggle('on',c.dataset.r===state.ref));}
+function lenLabel(ft){return state.unit==='ft'?ft+' ft':(ft*FT).toFixed(1)+' m';}
+function offset(){return state.ref==='edge'?RAD:0;}
+function breakCentre(L,S,h,t,stimp){return S*L*(stimp/20)*COS[h]*t;}
+
+function render(){
+  const L=+$('L').value,S=+$('S').value;
+  const cIn=breakCentre(L,S,hour,tilt,state.stimp);
+  const rIn=cIn-offset();
+  $('vL').textContent=lenLabel(L);
+  $('vS').textContent=(+S.toFixed(2))+' %';
+  $('vC').textContent=CLBL[hour];
+  $('vT').textContent=tilt===1?'neutral':(tilt<1?'uphill \u221220%':'downhill +25%');
+  $('vR').textContent=state.ref==='edge'?'high edge':'centre';
+  $('hdrStimp').textContent=state.stimp.toFixed(1);
+  $('hdrRef').textContent='from '+(state.ref==='edge'?'edge':'centre');
+  const inside=rIn<-0.02;
+  $('oBalls').textContent=(Math.abs(rIn)/BALL).toFixed(1);
+  $('oBalls').classList.toggle('inside',inside);
+  $('oLbl').textContent=state.ref==='centre'?'balls from the centre of the hole'
+    :inside?'balls INSIDE the high edge':'balls outside the high edge';
+  $('oCm').textContent=(Math.abs(rIn)*2.54).toFixed(1);
+  $('oIn').textContent=Math.abs(rIn).toFixed(1);
+  $('oHole').textContent=(Math.abs(rIn)/HOLE).toFixed(1);
+  drawScale(cIn);
+}
+
+function drawScale(cIn){
+  const W=360,pad=20,y=62;
+  const span=Math.max(HOLE+BALL, RAD+cIn+BALL*0.8);
+  const k=(W-pad*2)/span, hr=RAD*k, br=(BALL/2)*k;
+  const hx=pad+hr, ax=hx+cIn*k, ex=hx+hr;
+  let balls='';
+  if(cIn-offset()>0.1){
+    const start=hx+offset()*k, n=Math.floor((cIn-offset())/BALL);
+    for(let i=0;i<n;i++) balls+='<circle cx="'+(start+(i+0.5)*BALL*k).toFixed(1)+'" cy="'+y+'" r="'+br.toFixed(1)+'" fill="#fff" stroke="#B7C6CB" stroke-width="1"/>';
+    const f=(cIn-offset())/BALL-n;
+    if(f>0.15){const cx=start+(n+f/2)*BALL*k;
+      balls+='<rect x="'+(cx-f*BALL*k/2).toFixed(1)+'" y="'+(y-br).toFixed(1)+'" width="'+(f*BALL*k).toFixed(1)+'" height="'+(br*2).toFixed(1)+'" rx="2" fill="#fff" stroke="#CBD8DC" stroke-width="1"/>';}
+  }
+  const edgeMark = state.ref==='edge'
+    ? '<line x1="'+ex.toFixed(1)+'" y1="'+(y-hr-6)+'" x2="'+ex.toFixed(1)+'" y2="'+(y+hr+6)+'" stroke="#1F7A4C" stroke-width="2"/>'
+      +'<text x="'+ex.toFixed(1)+'" y="'+(y+hr+20)+'" fill="#1F7A4C" font-size="10" font-weight="700" text-anchor="middle">high edge</text>'
+    : '<text x="'+hx.toFixed(1)+'" y="'+(y+hr+18)+'" fill="#6B808A" font-size="10" text-anchor="middle">centre</text>';
+  $('viz').innerHTML='<line x1="'+pad+'" y1="'+y+'" x2="'+(W-pad)+'" y2="'+y+'" stroke="#DCE5E7" stroke-width="1"/>'
+    +balls+'<circle cx="'+hx.toFixed(1)+'" cy="'+y+'" r="'+hr.toFixed(1)+'" fill="#14232A"/>'+edgeMark
+    +(cIn>0.05
+      ?'<line x1="'+ax.toFixed(1)+'" y1="'+(y-30)+'" x2="'+ax.toFixed(1)+'" y2="'+(y+18)+'" stroke="#D64545" stroke-width="2.5"/>'
+       +'<circle cx="'+ax.toFixed(1)+'" cy="'+(y-30)+'" r="3.5" fill="#D64545"/>'
+       +'<text x="'+ax.toFixed(1)+'" y="'+(y-38)+'" fill="#D64545" font-size="11" font-weight="700" text-anchor="'+(ax>W-58?'end':'middle')+'">AIM</text>'
+      :'');
+  $('cap').textContent=cIn<0.05?'straight putt \u2014 no break':'to scale \u00b7 ball 1.68 in \u00b7 hole 4.25 in \u00b7 red line = aim';
+}
+
+function renderCal(){
+  const L=+$('cL').value,S=+$('cS').value,B=+$('cB').value;
+  $('cvL').textContent=lenLabel(L);
+  $('cvS').textContent=(+S.toFixed(2))+' %';
+  $('cvC').textContent=CLBL[cHour];
+  $('cvB').textContent=B.toFixed(1)+' balls';
+  const cIn=B*BALL+offset();
+  $('cvBcm').textContent=(Math.abs(B*BALL)*2.54).toFixed(1)+' cm '+(B<0?'inside':'outside')+' the '
+    +(state.ref==='edge'?'high edge':'centre')+' \u00b7 '+cIn.toFixed(1)+' in from centre';
+  const bad=COS[cHour]===0;
+  $('addBtn').textContent=bad?'Pick a breaking putt (1\u20135)':'Add reading';
+  $('addBtn').disabled=bad;$('addBtn').style.opacity=bad?.5:1;
+  drawLog();
+}
+
+function impliedStimp(e){
+  const cIn=e.balls*BALL+(e.ref==='edge'?RAD:0);
+  return 20*cIn/(e.slope*e.len*COS[e.hour]);
+}
+
+function drawLog(){
+  const ul=$('log');ul.innerHTML='';
+  if(!state.entries.length){
+    $('calStimp').textContent='\u2014';
+    $('calSub').textContent='Log three putts to calibrate this green';
+    $('calBtns').classList.add('hidden');return;
+  }
+  state.entries.forEach((e,i)=>{
+    const li=document.createElement('li');
+    li.innerHTML='<span class="meta">'+lenLabel(e.len)+' \u00b7 '+e.slope+'% \u00b7 '+e.hour+" o'clock \u00b7 "+e.balls+' balls</span>'
+      +'<span><b>'+impliedStimp(e).toFixed(1)+'</b> <button data-i="'+i+'">\u00d7</button></span>';
+    ul.appendChild(li);
+  });
+  ul.querySelectorAll('button').forEach(b=>b.onclick=()=>{state.entries.splice(+b.dataset.i,1);save();drawLog();render();});
+  const vals=state.entries.map(impliedStimp).sort((a,b)=>a-b);
+  const med=vals.length%2?vals[(vals.length-1)/2]:(vals[vals.length/2-1]+vals[vals.length/2])/2;
+  const spread=vals[vals.length-1]-vals[0];
+  $('calStimp').textContent=med.toFixed(1);
+  $('calSub').innerHTML='effective Stimp \u00b7 divisor <b>'+(20/med).toFixed(1)+'</b>'
+    +(vals.length>=3?' \u00b7 spread '+spread.toFixed(1)+(spread>2?' \u2014 noisy, log more':''):' \u00b7 keep going');
+  $('calBtns').classList.remove('hidden');
+  $('calStimp').dataset.v=med;
+}
+
+$('addBtn').onclick=()=>{
+  if(COS[cHour]===0)return;
+  const e={len:+$('cL').value,slope:+$('cS').value,hour:cHour,balls:+$('cB').value,ref:state.ref};
+  if(e.balls*BALL+(e.ref==='edge'?RAD:0)<=0){toast('That aim is inside the hole \u2014 no fit');return;}
+  state.entries.push(e);save();drawLog();render();toast('Logged');
+};
+$('applyBtn').onclick=()=>{const v=+$('calStimp').dataset.v;if(!v)return;
+  state.stimp=Math.round(v*10)/10;save();render();toast('Readings now use Stimp '+state.stimp.toFixed(1));};
+$('clearBtn').onclick=()=>{state.entries=[];save();drawLog();render();toast('Log cleared');};
+
+document.addEventListener('gesturestart',e=>e.preventDefault());
+load();unitUI();render();renderCal();
+if('serviceWorker' in navigator) window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
+</script>
+</body>
+</html>
