@@ -102,6 +102,79 @@
   .mini button:active{background:var(--turf-soft)}
   .mini span{font-size:12.5px;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums;min-width:60px;text-align:center}
   .gridnote{font-size:11px;color:var(--mut);margin:11px 0 0;line-height:1.45}
+
+  /* ---- tab 3: visual ---- */
+  #paneVis .card{background:var(--card);border-radius:14px;padding:15px;margin-bottom:11px;
+    box-shadow:0 1px 2px rgba(20,35,42,.06)}
+  #paneVis svg{width:100%;height:auto;display:block;touch-action:manipulation}
+  #paneVis .verdict{text-align:center;padding:3px 0 1px}
+  #paneVis .verdict .big{font-size:17px;font-weight:800;letter-spacing:-.01em}
+  #paneVis .verdict .big.hit{color:var(--turf)}
+  #paneVis .verdict .sm{font-size:12px;color:var(--mut);margin-top:3px;min-height:17px}
+  #paneVis .gauges{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:4px}
+  #paneVis .g{text-align:center}
+  #paneVis .g .t{font-size:9.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--mut);margin-bottom:6px}
+  #paneVis .g .r{font-size:11px;font-weight:700;margin-top:4px;font-variant-numeric:tabular-nums}
+  #paneVis .g .r.ok{color:var(--turf)}
+  #paneVis .g .r.no{color:var(--warn)}
+  #paneVis .row{display:flex;align-items:center;gap:10px;margin-top:12px}
+  #paneVis .row .lab{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);width:56px}
+  #paneVis .row input{flex:1;min-width:0;accent-color:var(--turf);height:34px;margin:0}
+  #paneVis .row .n{font-size:13px;font-weight:700;width:64px;text-align:right;font-variant-numeric:tabular-nums}
+  #paneVis .slrow{margin-top:14px}
+  #paneVis .slrow .lab{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px}
+  #paneVis .slrow .lab span{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+  #paneVis .slrow .lab b{font-size:14px;font-variant-numeric:tabular-nums}
+  #paneVis .seg{display:flex;gap:5px}
+  #paneVis .seg button{flex:1;padding:11px 0;background:var(--card);border:1px solid var(--line);
+    border-radius:9px;font:inherit;font-size:14px;font-weight:700;color:var(--mut);cursor:pointer}
+  #paneVis .seg button:active{background:var(--soft)}
+  #paneVis .seg button.on{background:var(--turf);border-color:var(--turf);color:#fff}
+  #paneVis .seg button.on.flat{background:#7A8F86;border-color:#7A8F86}
+  #paneVis .btn{width:100%;padding:12px;border:0;border-radius:10px;background:var(--turf);color:#fff;
+    font:inherit;font-size:14px;font-weight:700;margin-top:11px}
+  #paneVis .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--mut)}
+  #paneVis ol.steps{margin:0;padding-left:19px;font-size:13.5px;line-height:1.55}
+  #paneVis ol.steps li{margin-bottom:8px}
+  #paneVis ol.steps b{color:var(--turf)}
+  #paneVis .note{font-size:12px;color:var(--mut);line-height:1.5;margin:10px 0 0}
+  #paneVis .card{margin-bottom:11px}
+  /* ---- recessed green speed ---- */
+  .rec{margin-top:16px;border-radius:12px;background:rgba(107,128,138,.075);padding:12px 13px;
+    opacity:.66;transition:opacity .16s}
+  .rec.awake,.rec:hover,.rec:focus-within{opacity:1}
+  .rec .top{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:10px}
+  .rec .lbl{font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#93A6AE}
+  .rec .now{font-size:13.5px;font-weight:700;color:#5F757E;font-variant-numeric:tabular-nums}
+  .rec .stepper button{width:40px;height:40px;flex:0 0 40px;border-color:#D6E0E3;
+    background:rgba(255,255,255,.72);color:#48606A;font-size:20px}
+  .rec input[type=range]{accent-color:#8FA8AF;height:30px}
+  .rec .hint{color:#93A6AE;margin-top:9px}
+  /* ---- plays-like strip ---- */
+  .pl{margin-top:10px;border-radius:10px;padding:9px 11px;display:flex;align-items:center;
+    justify-content:space-between;gap:8px}
+  .pl.off{background:#F4F7F5}
+  .pl.on{background:var(--turf-soft)}
+  .pl.hot{background:#FBEFDD}
+  .pl .lt{font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+  .pl .rt{font-size:17px;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .pl.off .lt,.pl.off .rt{color:#93A6AE}
+  .pl.on .lt{color:#3D5A4A}.pl.on .rt{color:var(--turf)}
+  .pl.hot .lt{color:#8A5A0B}.pl.hot .rt{color:#C77A12}
+  .plnote{font-size:11px;margin:6px 0 0;line-height:1.45;color:var(--mut)}
+  .plnote.warn{color:#C77A12;font-weight:600}
+  /* ---- speed info ---- */
+  #speedInfo .st{font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--mut);margin:0 0 9px}
+  #speedInfo .pace{background:var(--turf-soft);border-radius:10px;padding:11px 12px;margin-bottom:11px}
+  #speedInfo .pace b{display:block;font-size:13.5px;color:#14232A;margin-bottom:2px}
+  #speedInfo .pace span{font-size:12px;color:#3D5A4A;line-height:1.45;display:block}
+  #speedInfo table{width:100%;border-collapse:collapse;font-size:12.5px}
+  #speedInfo td{padding:7px 2px;border-top:1px solid var(--line)}
+  #speedInfo td:first-child{color:var(--mut)}
+  #speedInfo td:last-child{text-align:right;font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+  #speedInfo td.up{color:var(--sig)}
+  #speedInfo .foot{font-size:11px;color:var(--mut);line-height:1.5;margin:11px 0 0}
   .hidden{display:none}
   .toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom) + 26px);
     transform:translateX(-50%) translateY(80px);background:var(--ink);color:#fff;padding:11px 18px;
@@ -115,6 +188,7 @@
   <div class="tabs">
     <button id="tRead" class="on">Read</button>
     <button id="tCard">Card</button>
+    <button id="tVis">Visual</button>
   </div>
 
   <!-- ============ READ ============ -->
@@ -131,21 +205,11 @@
     </div>
 
     <div class="card" style="padding:14px 10px 8px">
-      <svg id="viz" viewBox="0 0 360 118"></svg>
+      <svg id="viz" viewBox="0 0 360 140"></svg>
       <p class="caption" id="cap"></p>
     </div>
 
     <div class="card">
-      <div class="field">
-        <div class="fhead"><span class="name">Green speed</span><span class="val">Stimp <span id="vK">10</span></span></div>
-        <div class="stepper">
-          <button type="button" data-step="-1" data-t="K">&minus;</button>
-          <input type="range" id="K" min="6" max="13" step="0.5" value="10">
-          <button type="button" data-step="1" data-t="K">+</button>
-        </div>
-        <p class="hint" id="kHint"></p>
-      </div>
-
       <div class="field">
         <div class="fhead"><span class="name">Length</span><span class="val" id="vL">10 ft</span></div>
         <div class="stepper">
@@ -157,6 +221,11 @@
           <button type="button" id="uFt" class="on">feet</button>
           <button type="button" id="uM">metres</button>
         </div>
+        <div class="pl off" id="plStrip">
+          <span class="lt" id="plLab">Plays like</span>
+          <span class="rt" id="plVal">10 ft</span>
+        </div>
+        <p class="plnote" id="plNote"></p>
       </div>
 
       <div class="field">
@@ -186,6 +255,34 @@
         </div>
         <p class="hint">Downhill-across putts break more than the mirror-image uphill putt. Bigger effect than the diagonal choice above.</p>
       </div>
+
+      <div class="rec" id="recK">
+        <div class="top">
+          <span class="lbl">Green speed</span>
+          <span class="now">Stimp <span id="vK">10</span></span>
+        </div>
+        <div class="stepper">
+          <button type="button" data-step="-1" data-t="K">&minus;</button>
+          <input type="range" id="K" min="6" max="13" step="0.5" value="10">
+          <button type="button" data-step="1" data-t="K">+</button>
+        </div>
+        <p class="hint" id="kHint"></p>
+      </div>
+    </div>
+
+    <div class="card" id="speedInfo">
+      <p class="st">Speed info</p>
+      <div class="pace">
+        <b>Every read here assumes one pace</b>
+        <span>A firm, holing-out stroke &mdash; the ball finishing about a foot (30&nbsp;cm) past on a mid-length putt. That pace is baked into the divisor. Own it and the numbers are right; vary it and they drift.</span>
+      </div>
+      <table>
+        <tr><td>Dying it in at the lip</td><td class="up">add a third</td></tr>
+        <tr><td>A foot past &mdash; the default</td><td>as shown</td></tr>
+        <tr><td>Ramming it, two feet past</td><td>take off a fifth</td></tr>
+      </table>
+      <p class="foot">Speed sets the read, not the other way round. A dying putt spends its last metre almost stationary, so gravity gets far longer to work &mdash; nearly double the break of a firm one. Two players with different pace need different aim points, and both are right.</p>
+      <p class="foot">The <b>plays like</b> row under Length handles uphill and downhill: about a foot per 1&#37; of slope per 10&nbsp;ft of putt at Stimp&nbsp;10, more on faster greens. It reads off the clock and Lie rows, so it only fires when something actually runs along your line &mdash; at 3&ndash;9 it stays quiet.</p>
     </div>
   </section>
 
@@ -205,6 +302,52 @@
       <p class="gridnote">Measured from the <b>high edge</b> of the hole &mdash; the left or right lip, whichever is up the slope.<br>
       Full break (dead across), level lie. Diagonal above the hole &rarr; &times;0.9 &nbsp;&middot;&nbsp; diagonal below &rarr; &times;0.6</p>
     </div>
+  </section>
+
+  <!-- ============ VISUAL ============ -->
+  <section id="paneVis" class="hidden">
+<div class="card">
+    <svg id="flPlan" viewBox="0 0 320 320"></svg>
+  </div>
+
+  <div class="card">
+    <div class="verdict">
+      <div class="big" id="flBig">3 o&rsquo;clock</div>
+      <div class="sm" id="flSm">feet tilted &mdash; keep walking</div>
+    </div>
+    <div class="gauges">
+      <div class="g"><div class="t">Side to side &mdash; feet</div>
+        <svg id="flGA" viewBox="0 0 140 74"></svg>
+        <div class="r" id="flRA">tilted</div></div>
+      <div class="g"><div class="t">Front to back &mdash; shins</div>
+        <svg id="flGB" viewBox="0 0 140 74"></svg>
+        <div class="r" id="flRB">level</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="row"><span class="lab">Position</span>
+      <input type="range" id="flTh" min="0" max="359" step="1" value="90">
+      <span class="n" id="flNTh">3:00</span></div>
+    <div class="slrow">
+      <div class="lab"><span>Slope</span><b id="flNSl">2 %</b></div>
+      <div class="seg" id="flSeg"></div>
+    </div>
+    <button class="btn" id="flWalk">Walk the circle</button>
+    <button class="btn ghost" id="flSnap">Jump to the fall line</button>
+  </div>
+
+  <div class="card">
+    <ol class="steps">
+      <li>Circle the hole at four or five paces, always <b>facing the hole</b>.</li>
+      <li>At 3 and 9 the ground runs across you &mdash; <b>one foot is clearly lower</b>. Maximum discomfort.</li>
+      <li>Keep going until your <b>feet feel level</b>. That happens twice, and both times you are on the fall line.</li>
+      <li>Tell the two apart with your shins: <b>leaning back</b> means you are below the hole at 6. <b>Leaning forward</b> means above it at 12.</li>
+      <li>That line through 12 and 6 is the straight putt. A ball anywhere on it has <b>no break</b>.</li>
+    </ol>
+    <p class="note">The badge always stands upright so you can read it; the <b>bar through it is your stance</b> &mdash; it swings round as you circle, and the two white dots are your feet.</p>
+    <p class="note">Why it works: your feet only feel the slope running across them. Facing straight up or straight down the fall line puts all of it front-to-back, where your feet cannot sense it &mdash; but your shins can.</p>
+  </div>
   </section>
 
 </div>
@@ -238,10 +381,11 @@ function save(){ store.set(JSON.stringify(state)); }
 function toast(m){const t=$('toast');t.textContent=m;t.classList.add('show');
   clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),1600);}
 
-const TABS=[['tRead','paneRead'],['tCard','paneCard']];
+const TABS=[['tRead','paneRead'],['tCard','paneCard'],['tVis','paneVis']];
 TABS.forEach(([bt,pn])=>{
   $(bt).onclick=()=>{
     TABS.forEach(([b,p])=>{$(b).classList.toggle('on',b===bt);$(p).classList.toggle('hidden',p!==pn);});
+    if(pn==='paneVis'){fl_syncSlope();fl_draw();} else {fl_stop();}
     window.scrollTo(0,0);
   };
 });
@@ -265,15 +409,15 @@ function pol(deg,r){const t=(deg-90)*Math.PI/180;return[C+r*Math.cos(t),C+r*Math
 function drawDial(){
   const a=axis(), sel=a.deg;
   let s='<defs>'
-    +'<radialGradient id="gd" cx="50%" cy="34%" r="78%">'
+    +'<radialGradient id="dialGd" cx="50%" cy="34%" r="78%">'
       +'<stop offset="0%" stop-color="#224937"/><stop offset="62%" stop-color="#153328"/>'
       +'<stop offset="100%" stop-color="#0B1D16"/></radialGradient>'
-    +'<linearGradient id="gs" x1="0" y1="0" x2="0" y2="1">'
+    +'<linearGradient id="dialGs" x1="0" y1="0" x2="0" y2="1">'
       +'<stop offset="0%" stop-color="#FFFFFF" stop-opacity=".07"/>'
       +'<stop offset="100%" stop-color="#000000" stop-opacity=".16"/></linearGradient>'
     +'</defs>';
-  s+='<circle cx="160" cy="160" r="'+R_RING+'" fill="url(#gd)"/>';
-  s+='<circle cx="160" cy="160" r="'+R_RING+'" fill="url(#gs)"/>';
+  s+='<circle cx="160" cy="160" r="'+R_RING+'" fill="url(#dialGd)"/>';
+  s+='<circle cx="160" cy="160" r="'+R_RING+'" fill="url(#dialGs)"/>';
   s+='<circle cx="160" cy="160" r="'+R_RING+'" fill="none" stroke="#8FB7A0" stroke-opacity=".26" stroke-width="1"/>';
   s+='<circle cx="160" cy="160" r="'+(R_T1-4)+'" fill="none" stroke="#8FB7A0" stroke-opacity=".10" stroke-width="1"/>';
 
@@ -356,63 +500,150 @@ function render(){
   $('oBalls2').textContent = flat ? '0.0' : (Math.abs(eIn)/BALL).toFixed(1);
   $('oCm').textContent   = flat ? '0.0' : (Math.abs(eIn)*2.54).toFixed(1);
   $('oHole').textContent = flat ? '0.0' : (Math.abs(eIn)/HOLE).toFixed(1);
+  playsLike(L,S,K,a);
   drawScale(cIn, flat);
 }
 
-function drawScale(cIn, flat){
-  const W=360,H=118,pad=16,y=58;
-  const TURF='#D7E9DC', TURF2='#C7DFCD', RING='#FFFFFF', CUP='#A9C7B2',
-        LINE='#1F7A4C', BALLF='#FFFFFF', BALLS='#A8BFAE';
-  /* fixed cup size: never let the hole balloon */
-  const span=RAD+Math.max(cIn,0)+BALL*0.9;
-  const k=Math.min(11.5,(W-pad*2)/span);
-  const hr=RAD*k, br=(BALL/2)*k;
-  const hx=pad+hr, ex=hx+hr, ax=hx+cIn*k;
+/* along-line slope is the complement of the across component the clock already gives;
+   the Lie row supplies the sign. No extra controls. */
+function playsLike(L,S,K,a){
+  const alongMult=Math.sqrt(Math.max(0,1-a.m*a.m));
+  const sign = state.tilt<1 ? 1 : (state.tilt>1 ? -1 : 0);
+  const along = S*alongMult*sign;
+  const f = 1 + 0.0128*along*K;
+  const pl = L*f, dev = Math.abs(f-1);
+  const el=$('plStrip'), lab=$('plLab'), val=$('plVal'), note=$('plNote');
+  const unit = state.unit==='ft' ? ' ft' : ' m';
+  const cv = v => state.unit==='ft' ? v.toFixed(v<10?1:0) : (v*FT).toFixed(1);
 
-  /* turf panel with mowing stripes */
-  let s='<defs><linearGradient id="tg" x1="0" y1="0" x2="0" y2="1">'
-    +'<stop offset="0%" stop-color="'+TURF+'"/><stop offset="100%" stop-color="'+TURF2+'"/></linearGradient>'
-    +'<clipPath id="tc"><rect x="4" y="6" width="'+(W-8)+'" height="'+(H-12)+'" rx="10"/></clipPath></defs>';
-  s+='<rect x="4" y="6" width="'+(W-8)+'" height="'+(H-12)+'" rx="10" fill="url(#tg)"/>';
-  s+='<g clip-path="url(#tc)">';
-  for(let x=4;x<W;x+=36) s+='<rect x="'+x+'" y="6" width="18" height="'+(H-12)+'" fill="#FFFFFF" fill-opacity=".22"/>';
-  s+='</g>';
+  if(a.m===1 && sign!==0 && S>0){
+    el.className='pl off'; lab.textContent='Plays like'; val.textContent=cv(L)+unit;
+    note.className='plnote';
+    note.textContent='dead across the slope \u2014 nothing runs along your line, so it plays its true length';
+    return;
+  }
+  if(a.m===0 && sign===0 && S>0){
+    el.className='pl off'; lab.textContent='Plays like'; val.textContent=cv(L)+unit;
+    note.className='plnote warn';
+    note.textContent='a putt on the fall line is either up or down \u2014 set the Lie row below';
+    return;
+  }
+  if(dev<0.05){
+    el.className='pl off'; lab.textContent='Plays like'; val.textContent=cv(L)+unit;
+    note.className='plnote';
+    note.textContent = S===0 ? 'flat \u2014 hit it its true length'
+                             : 'barely up or down along your line \u2014 ignore it';
+    return;
+  }
+  if(f<=0.34 || dev>0.55){
+    el.className='pl hot';
+    lab.textContent = f<1 ? 'Plays like \u2014 barely touch it' : 'Plays like \u2014 big hit';
+    val.textContent = cv(pl)+unit;
+    note.className='plnote warn';
+    note.textContent = f<1
+      ? 'severe downhill. A foot past leaves an ugly comeback \u2014 die it in, and expect it to run a touch further than this.'
+      : 'severe uphill. Firm stroke, and the break shrinks a little because the ball is on the green for less time.';
+    return;
+  }
+  el.className='pl on';
+  lab.textContent='Plays like';
+  val.textContent=cv(pl)+unit+' '+(f>1?'\u2191':'\u2193');
+  note.className='plnote';
+  note.textContent=(f>1?'+':'\u2212')+Math.round(dev*100)+'% \u00b7 '
+    +(f>1?'uphill':'downhill')+' along your line \u00b7 '+Math.abs(along).toFixed(1)+'% effective';
+}
+
+/* split a ball count into subitizable groups of 3-4, largest first */
+function ballSplit(n){
+  if(n<=4) return n>0?[n]:[];
+  const k=Math.ceil(n/4), base=Math.floor(n/k), r=n%k, g=[];
+  for(let i=0;i<k;i++) g.push(base+(i<r?1:0));
+  return g;
+}
+
+function drawScale(cIn, flat){
+  const W=360,H=140,pad=22,y=86,SQ=0.32;
+  const nTot=Math.max(0,Math.floor((cIn-RAD)/BALL));
+  const groups=ballSplit(nTot);
+  const span=RAD+Math.max(cIn,0)+BALL*0.9;
+  const k=Math.min(11,(W-pad*2)/span);
+  const hr=RAD*k, br=(BALL/2)*k, hx=pad+hr, ex=hx+hr, ax=hx+cIn*k;
+
+  let s='<defs>'
+   +'<linearGradient id="vizTurf" x1="0" y1="0" x2="0" y2="1">'
+     +'<stop offset="0%" stop-color="#9CC6AC"/><stop offset="26%" stop-color="#C9E4D2"/>'
+     +'<stop offset="100%" stop-color="#EDF7EF"/></linearGradient>'
+   +'<linearGradient id="vizSky" x1="0" y1="0" x2="0" y2="1">'
+     +'<stop offset="0%" stop-color="#E8F2F6"/><stop offset="100%" stop-color="#D7EAE1"/></linearGradient>'
+   +'<radialGradient id="vizCup" cx="50%" cy="14%" r="88%">'
+     +'<stop offset="0%" stop-color="#06130C"/><stop offset="100%" stop-color="#1F4732"/></radialGradient>'
+   +'</defs>';
+  s+='<rect x="0" y="0" width="'+W+'" height="'+H+'" rx="12" fill="url(#vizTurf)"/>';
+  s+='<rect x="0" y="0" width="'+W+'" height="28" fill="url(#vizSky)"/>';
+  let tl='M0 28 ';
+  for(let x=0;x<=W;x+=18){const g=10+((x*37)%9); tl+='L'+x+' '+(28-g)+' L'+(x+9)+' '+(28-g*0.55)+' ';}
+  s+='<path d="'+tl+'L'+W+' 28 Z" fill="#7FA88C" fill-opacity=".45"/>';
+  s+='<path d="M0 30 Q180 21 '+W+' 34 L'+W+' 28 L0 28 Z" fill="#8FBB9F" fill-opacity=".6"/>';
+  for(let i=0;i<9;i++){const yy=40+i*12;
+    s+='<path d="M0 '+yy+' Q180 '+(yy-6)+' '+W+' '+(yy+3)+'" fill="none" stroke="#fff" stroke-opacity="'+(0.32-i*0.02).toFixed(2)+'"/>';}
+
+  if(!flat){
+    /* ball chain, grouped */
+    let idx=0; const marks=[];
+    groups.forEach(gn=>{
+      const gStart=hx+RAD*k+idx*BALL*k;
+      let first=null,last=null;
+      for(let j=0;j<gn;j++){
+        const cx=gStart+(j+0.5)*BALL*k, r=br*(1-0.013*(idx+j));
+        if(j===0) first=cx-r;
+        if(j===gn-1) last=cx+r;
+        s+='<ellipse cx="'+(cx+0.6).toFixed(1)+'" cy="'+(y+r*0.85).toFixed(1)+'" rx="'+(r*0.94).toFixed(1)+'" ry="'+(r*0.32).toFixed(1)+'" fill="#2C5C40" fill-opacity=".2"/>';
+        s+='<circle cx="'+cx.toFixed(1)+'" cy="'+y+'" r="'+r.toFixed(1)+'" fill="#fff" stroke="#B0C7B8" stroke-width="1"/>';
+      }
+      marks.push({first:first,last:last,gn:gn,mid:(first+last)/2});
+      idx+=gn;
+    });
+    const frac=(cIn-RAD)/BALL-nTot;
+    if(frac>0.15&&nTot>0){
+      const cx=hx+RAD*k+(nTot+frac/2)*BALL*k;
+      s+='<circle cx="'+cx.toFixed(1)+'" cy="'+y+'" r="'+(br*0.92).toFixed(1)+'" fill="#fff" fill-opacity=".45" stroke="#B0C7B8" stroke-dasharray="2 3"/>';
+    }
+    /* brackets and counts, only once there is more than one group */
+    if(marks.length>1){
+      const by=y+br+11, fs=Math.max(9,Math.min(11.5,br*1.25));
+      const bracket=function(a,b,mid,label){
+        s+='<path d="M'+a.toFixed(1)+' '+(by-4)+' L'+a.toFixed(1)+' '+by+' L'+b.toFixed(1)+' '+by+' L'+b.toFixed(1)+' '+(by-4)+'" fill="none" stroke="#3B6B4E" stroke-opacity=".55" stroke-width="1.4"/>';
+        s+='<text x="'+mid.toFixed(1)+'" y="'+(by+fs+1).toFixed(1)+'" fill="#2C5C40" font-size="'+fs.toFixed(1)+'" font-weight="800" text-anchor="middle">'+label+'</text>';
+      };
+      if(marks.length<=4){
+        marks.forEach(function(m){ bracket(m.first,m.last,m.mid,m.gn); });
+      }else{
+        /* too many groups to subitize - one bracket, the total */
+        const a=marks[0].first, b=marks[marks.length-1].last;
+        bracket(a,b,(a+b)/2,nTot);
+      }
+    }
+  }
+
+  /* cup, no pin */
+  const cx0 = flat ? W/2 : hx;
+  s+='<ellipse cx="'+cx0.toFixed(1)+'" cy="'+(y+2.5).toFixed(1)+'" rx="'+(hr*1.18).toFixed(1)+'" ry="'+(hr*SQ*1.7).toFixed(1)+'" fill="#3B6B4E" fill-opacity=".2"/>';
+  s+='<ellipse cx="'+cx0.toFixed(1)+'" cy="'+y+'" rx="'+(hr+2).toFixed(1)+'" ry="'+(hr*SQ+1.7).toFixed(1)+'" fill="#FFFFFF"/>';
+  s+='<ellipse cx="'+cx0.toFixed(1)+'" cy="'+y+'" rx="'+hr.toFixed(1)+'" ry="'+(hr*SQ).toFixed(1)+'" fill="url(#vizCup)"/>';
+  s+='<ellipse cx="'+(cx0+hr*0.9).toFixed(1)+'" cy="'+(y+hr*SQ*0.9).toFixed(1)+'" rx="'+(hr*0.9).toFixed(1)+'" ry="'+(hr*0.16).toFixed(1)+'" fill="#2C5C40" fill-opacity=".22"/>';
 
   if(flat){
-    const cx=W/2;
-    s+='<circle cx="'+cx+'" cy="'+y+'" r="'+(RAD*11.5).toFixed(1)+'" fill="'+CUP+'" stroke="'+RING+'" stroke-width="3"/>';
     $('viz').innerHTML=s;
     $('cap').textContent='straight putt \u2014 aim at the centre';
     return;
   }
 
-  /* chain of balls from the high edge out to the aim point */
-  if(cIn-RAD>0.1){
-    const st=hx+RAD*k, n=Math.floor((cIn-RAD)/BALL);
-    for(let i=0;i<n;i++){
-      const cx=st+(i+0.5)*BALL*k;
-      s+='<circle cx="'+cx.toFixed(1)+'" cy="'+y+'" r="'+br.toFixed(1)+'" fill="'+BALLF+'" stroke="'+BALLS+'" stroke-width="1"/>';
-    }
-    const f=(cIn-RAD)/BALL-n;
-    if(f>0.15){
-      const cx=st+(n+f/2)*BALL*k;
-      s+='<rect x="'+(cx-f*BALL*k/2).toFixed(1)+'" y="'+(y-br).toFixed(1)+'" width="'+(f*BALL*k).toFixed(1)
-        +'" height="'+(br*2).toFixed(1)+'" rx="2" fill="'+BALLF+'" fill-opacity=".72" stroke="'+BALLS+'" stroke-width="1"/>';
-    }
-  }
-
-  /* the cup: white liner, green interior */
-  s+='<circle cx="'+hx.toFixed(1)+'" cy="'+y+'" r="'+hr.toFixed(1)+'" fill="'+CUP+'" stroke="'+RING+'" stroke-width="3"/>';
-  /* high edge tick */
-  s+='<line x1="'+ex.toFixed(1)+'" y1="'+(y-hr-7)+'" x2="'+ex.toFixed(1)+'" y2="'+(y+hr+7)+'" stroke="'+LINE+'" stroke-width="2"/>';
-  s+='<text x="'+ex.toFixed(1)+'" y="'+(y+hr+20)+'" fill="'+LINE+'" font-size="9" font-weight="700" letter-spacing=".4" text-anchor="middle">HIGH EDGE</text>';
-  /* aim marker */
-  s+='<line x1="'+ax.toFixed(1)+'" y1="'+(y-30)+'" x2="'+ax.toFixed(1)+'" y2="'+(y+16)+'" stroke="'+RING+'" stroke-width="5" stroke-linecap="round"/>';
-  s+='<line x1="'+ax.toFixed(1)+'" y1="'+(y-30)+'" x2="'+ax.toFixed(1)+'" y2="'+(y+16)+'" stroke="'+LINE+'" stroke-width="2.2" stroke-linecap="round"/>';
-  s+='<circle cx="'+ax.toFixed(1)+'" cy="'+(y-30)+'" r="4" fill="'+LINE+'" stroke="'+RING+'" stroke-width="1.6"/>';
-  s+='<text x="'+ax.toFixed(1)+'" y="'+(y-38)+'" fill="'+LINE+'" font-size="10.5" font-weight="800" letter-spacing=".6" text-anchor="'
-    +(ax>W-56?'end':'middle')+'">AIM</text>';
-
+  s+='<line x1="'+ex.toFixed(1)+'" y1="'+(y-hr*SQ-10).toFixed(1)+'" x2="'+ex.toFixed(1)+'" y2="'+(y+hr*SQ+10).toFixed(1)+'" stroke="#1F7A4C" stroke-width="2"/>';
+  s+='<line x1="'+ax.toFixed(1)+'" y1="'+(y-44)+'" x2="'+ax.toFixed(1)+'" y2="'+(y+12)+'" stroke="#fff" stroke-width="5" stroke-linecap="round"/>';
+  s+='<line x1="'+ax.toFixed(1)+'" y1="'+(y-44)+'" x2="'+ax.toFixed(1)+'" y2="'+(y+12)+'" stroke="#1F7A4C" stroke-width="2.3" stroke-linecap="round" stroke-dasharray="5 4"/>';
+  const anc = ax>W-52?'end':(ax<52?'start':'middle');
+  s+='<text x="'+ax.toFixed(1)+'" y="'+(y-50)+'" stroke="#fff" stroke-width="3" stroke-linejoin="round" fill="#fff" font-size="10" font-weight="800" text-anchor="'+anc+'">AIM</text>';
+  s+='<text x="'+ax.toFixed(1)+'" y="'+(y-50)+'" fill="#1F7A4C" font-size="10" font-weight="800" text-anchor="'+anc+'">AIM</text>';
   $('viz').innerHTML=s;
   $('cap').textContent='to scale \u00b7 ball 43 mm \u00b7 hole 108 mm';
 }
@@ -447,6 +678,163 @@ function drawGrid(){
   });
   $('grid').innerHTML=h+'</tbody>';
 }
+
+/* ---- tab 3: visual ---- */
+
+const FL_C=160, FL_R=104;                      /* plan view */
+let fl_th=90, fl_slope=2, fl_timer=null;
+
+function fl_clock(d){
+  const h=((d/30)%12+12)%12, hh=Math.floor(h)||12, mm=Math.round((h-Math.floor(h))*60);
+  return (hh===0?12:hh)+':'+String(mm===60?0:mm).padStart(2,'0');
+}
+function fl_pol(deg,r){const t=(deg-90)*Math.PI/180;return[FL_C+r*Math.cos(t),FL_C+r*Math.sin(t)];}
+
+/* upright walking figure, drawn in local coords around (x,y) */
+function fl_walker(x,y,c,sw){
+  sw=sw||1.7;
+  return '<circle cx="'+(x-0.6).toFixed(1)+'" cy="'+(y-7.6).toFixed(1)+'" r="2.5" fill="'+c+'"/>'
+   +'<g fill="none" stroke="'+c+'" stroke-width="'+sw+'" stroke-linecap="round" stroke-linejoin="round">'
+   +'<path d="M'+(x-0.6).toFixed(1)+' '+(y-4.8).toFixed(1)+' L'+(x-0.2).toFixed(1)+' '+(y+0.4).toFixed(1)+'"/>'
+   +'<path d="M'+(x-0.2).toFixed(1)+' '+(y+0.4).toFixed(1)+' L'+(x-3.8).toFixed(1)+' '+(y+5.4).toFixed(1)+' L'+(x-4.6).toFixed(1)+' '+(y+7.6).toFixed(1)+'"/>'
+   +'<path d="M'+(x-0.2).toFixed(1)+' '+(y+0.4).toFixed(1)+' L'+(x+3.4).toFixed(1)+' '+(y+5.4).toFixed(1)+' L'+(x+4.4).toFixed(1)+' '+(y+7.6).toFixed(1)+'"/>'
+   +'<path d="M'+(x-0.4).toFixed(1)+' '+(y-3.6).toFixed(1)+' L'+(x-3.6).toFixed(1)+' '+(y-0.6).toFixed(1)+'"/>'
+   +'<path d="M'+(x-0.4).toFixed(1)+' '+(y-3.6).toFixed(1)+' L'+(x+3.0).toFixed(1)+' '+(y-1.6).toFixed(1)+'"/>'
+   +'</g>';
+}
+/* stance bar + shadowed badge + figure */
+function fl_marker(x,y,tx,ty,c){
+  const f=21;
+  const a=[x+tx*f,y+ty*f], b=[x-tx*f,y-ty*f];
+  let s='<line x1="'+a[0].toFixed(1)+'" y1="'+a[1].toFixed(1)+'" x2="'+b[0].toFixed(1)+'" y2="'+b[1].toFixed(1)
+    +'" stroke="'+c+'" stroke-opacity=".38" stroke-width="3.2" stroke-linecap="round"/>';
+  [a,b].forEach(q=>s+='<circle cx="'+q[0].toFixed(1)+'" cy="'+q[1].toFixed(1)+'" r="4.2" fill="#FFFFFF" stroke="'+c+'" stroke-width="1.9"/>');
+  s+='<circle cx="'+x.toFixed(1)+'" cy="'+(y+1.6).toFixed(1)+'" r="13" fill="#0B1B14" fill-opacity=".14"/>';
+  s+='<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="13" fill="#FFFFFF" stroke="'+c+'" stroke-width="2.1"/>';
+  return s+fl_walker(x,y,c);
+}
+
+function fl_draw(){
+  const s=fl_slope;
+  const FLAT=(s===0);
+  const [gx,gy]=fl_pol(fl_th,FL_R);
+  const across=FLAT?0:Math.sin(fl_th*Math.PI/180);   /* feet tilt component */
+  const fore  =FLAT?0:Math.cos(fl_th*Math.PI/180);   /* shin lean component */
+  let o='<defs>'
+   +'<linearGradient id="flTg" x1="0" y1="0" x2="0" y2="1">'
+     +'<stop offset="0%" stop-color="'+(FLAT?'#D3E6D9':'#E3F1E7')+'"/><stop offset="100%" stop-color="'+(FLAT?'#D3E6D9':'#B9D6C2')+'"/></linearGradient>'
+   +'<marker id="flAr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">'
+     +'<path d="M0 0 L10 5 L0 10 z" fill="#7FA88C"/></marker>'
+   +'</defs>';
+  /* turf disc, lighter at the top = higher ground */
+  o+='<circle cx="160" cy="160" r="150" fill="url(#flTg)"/>';
+  for(let y=18;y<310;y+=26)
+    o+='<path d="M14 '+y+' Q160 '+(y-9)+' 306 '+y+'" fill="none" stroke="#FFFFFF" stroke-opacity=".40" stroke-width="1"/>';
+  if(!FLAT){
+    [70,160,250].forEach(x=>o+='<line x1="'+x+'" y1="34" x2="'+x+'" y2="70" stroke="#7FA88C" stroke-opacity=".75" stroke-width="1.6" marker-end="url(#flAr)"/>');
+    o+='<text x="160" y="24" fill="#4C6A58" font-size="9" font-weight="700" letter-spacing="1.4" text-anchor="middle">HIGH &#8212; 12</text>';
+    o+='<text x="160" y="308" fill="#4C6A58" font-size="9" font-weight="700" letter-spacing="1.4" text-anchor="middle">LOW &#8212; 6</text>';
+    o+='<line x1="160" y1="'+(FL_C-FL_R-16)+'" x2="160" y2="'+(FL_C+FL_R+16)+'" stroke="#1F7A4C" stroke-opacity=".34" stroke-width="1.6" stroke-dasharray="6 6"/>';
+  }else{
+    o+='<text x="160" y="24" fill="#4C6A58" font-size="9" font-weight="700" letter-spacing="1.4" text-anchor="middle">DEAD FLAT</text>';
+  }
+  /* walking circle */
+  o+='<circle cx="160" cy="160" r="'+FL_R+'" fill="none" stroke="#FFFFFF" stroke-opacity=".85" stroke-width="1.4" stroke-dasharray="2 5"/>';
+  /* the 3 and 9 danger marks */
+  if(!FLAT) [90,270].forEach(d=>{const [x,y]=fl_pol(d,FL_R);
+    o+='<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="3" fill="#D08A1E" fill-opacity=".55"/>';});
+  /* hole */
+  o+='<circle cx="160" cy="160" r="11" fill="#9FBFA8" stroke="#FFFFFF" stroke-width="2.6"/>';
+  /* golfer marker: stance bar rotates with the facing direction, badge stays upright */
+  const tx=Math.cos(fl_th*Math.PI/180), ty=Math.sin(fl_th*Math.PI/180);   /* tangential unit */
+  const lvl=Math.abs(across)<0.09;
+  const col=FLAT?'#7A8F86':(lvl?'#1F7A4C':'#D08A1E');
+  o+='<line x1="'+gx.toFixed(1)+'" y1="'+gy.toFixed(1)+'" x2="160" y2="160" stroke="'+col+'" stroke-opacity=".42" stroke-width="1.4" stroke-dasharray="3 4"/>';
+  o+=fl_marker(gx,gy,tx,ty,col);
+  $('flPlan').innerHTML=o;
+
+  /* gauges */
+  fl_gauge('flGA', across*s*9, lvl);
+  fl_gauge('flGB', fore*s*9, Math.abs(fore)<0.09);
+  $('flRA').textContent = lvl?'LEVEL':(Math.abs(across)>0.7?'strongly tilted':'tilted');
+  $('flRA').className='r '+(lvl?'ok':'no');
+  $('flRB').textContent = Math.abs(fore)<0.09?'level':(fore>0?'leaning forward':'leaning back');
+  $('flRB').className='r '+(Math.abs(fore)<0.09?'':'no');
+
+  $('flNTh').textContent=fl_clock(fl_th);
+  $('flNSl').textContent=fl_slope+' %';
+  const big=$('flBig'), sm=$('flSm');
+  if(FLAT){
+    big.textContent='No fall line';
+    big.className='big';
+    sm.textContent='dead flat \u2014 your feet are level everywhere, and every putt is straight';
+  }else if(lvl){
+    big.textContent = fore>0 ? 'On the fall line \u2014 12' : 'On the fall line \u2014 6';
+    big.className='big hit';
+    sm.textContent = fore>0 ? 'above the hole, leaning forward \u2014 this is a straight downhill putt'
+                            : 'below the hole, leaning back \u2014 this is a straight uphill putt';
+  }else{
+    big.textContent=fl_clock(fl_th).replace(':00','')+' o\u2019clock';
+    big.className='big';
+    sm.textContent = Math.abs(across)>0.7 ? 'feet strongly tilted \u2014 you are near 3 or 9, maximum break'
+                                          : 'feet tilted \u2014 keep walking';
+  }
+}
+
+function fl_gauge(id, tilt, ok){
+  const w=140,h=74,cx=70,cy=42,L=48;
+  const t=Math.max(-26,Math.min(26,tilt))*Math.PI/180;
+  const x1=cx-L*Math.cos(t), y1=cy-L*Math.sin(t), x2=cx+L*Math.cos(t), y2=cy+L*Math.sin(t);
+  const col=ok?'#1F7A4C':'#D08A1E';
+  let o='<rect x="6" y="8" width="128" height="58" rx="9" fill="#F3F7F4"/>';
+  o+='<line x1="'+(cx-L)+'" y1="'+cy+'" x2="'+(cx+L)+'" y2="'+cy+'" stroke="#CFDFD5" stroke-width="1" stroke-dasharray="3 4"/>';
+  o+='<line x1="'+x1.toFixed(1)+'" y1="'+y1.toFixed(1)+'" x2="'+x2.toFixed(1)+'" y2="'+y2.toFixed(1)
+    +'" stroke="'+col+'" stroke-width="4" stroke-linecap="round"/>';
+  /* bubble slides to the low end */
+  const bx=cx+(tilt>0?1:-1)*Math.min(30,Math.abs(tilt)*1.5), by=cy+Math.sin(t)*Math.min(30,Math.abs(tilt)*1.5)/1;
+  o+='<circle cx="'+(ok?cx:bx).toFixed(1)+'" cy="'+(ok?cy:by).toFixed(1)+'" r="5.4" fill="#FFFFFF" stroke="'+col+'" stroke-width="2"/>';
+  $(id).innerHTML=o;
+}
+
+$('flPlan').addEventListener('click',e=>{
+  const r=$('flPlan').getBoundingClientRect();
+  const x=(e.clientX-r.left)/r.width*320-FL_C, y=(e.clientY-r.top)/r.height*320-FL_C;
+  fl_th=(Math.atan2(x,-y)*180/Math.PI+360)%360;
+  $('flTh').value=Math.round(fl_th); fl_stop(); fl_draw();
+});
+$('flTh').addEventListener('input',()=>{fl_th=+$('flTh').value; fl_stop(); fl_draw();});
+(function(){
+  const seg=$('flSeg');
+  for(let v=0;v<=5;v++){
+    const b=document.createElement('button');
+    b.type='button'; b.textContent=v+'%'; b.dataset.v=v;
+    b.onclick=()=>{ fl_slope=v; fl_syncSlope(); fl_draw(); };
+    seg.appendChild(b);
+  }
+})();
+function fl_syncSlope(){
+  [...$('flSeg').children].forEach(c=>{
+    const on=(+c.dataset.v===fl_slope);
+    c.classList.toggle('on',on);
+    c.classList.toggle('flat',on&&fl_slope===0);
+  });
+}
+fl_syncSlope();
+$('flSnap').onclick=()=>{fl_th=180; $('flTh').value=180; fl_stop(); fl_draw();};
+function fl_stop(){ if(fl_timer){clearInterval(fl_timer);fl_timer=null;$('flWalk').textContent='Walk the circle';} }
+$('flWalk').onclick=()=>{
+  if(fl_timer){fl_stop();return;}
+  $('flWalk').textContent='Stop';
+  fl_timer=setInterval(()=>{fl_th=(fl_th+1.6)%360; $('flTh').value=Math.round(fl_th); fl_draw();},34);
+};
+
+(function(){
+  const r=$('recK'); if(!r) return;
+  let t=null;
+  const wake=()=>{ r.classList.add('awake'); clearTimeout(t);
+    t=setTimeout(()=>r.classList.remove('awake'),2600); };
+  ['pointerdown','input'].forEach(ev=>r.addEventListener(ev,wake));
+})();
 
 document.addEventListener('gesturestart',e=>e.preventDefault());
 (async()=>{
